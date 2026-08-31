@@ -62,12 +62,10 @@ export const ServicesSection: React.FC = () => {
             Servicio Todo Incluido
           </div>
           
-          {/* Strict single line title across all screen sizes with responsive scaling */}
-          <div className="overflow-x-auto overflow-y-hidden py-1">
-            <h2 className="font-kids text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] whitespace-nowrap">
-              ¿Qué incluye tu evento en <span className="text-amber-400">Amazonia</span>?
-            </h2>
-          </div>
+          {/* Clean responsive title without any horizontal scroll */}
+          <h2 className="font-kids text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] leading-tight px-2">
+            ¿Qué incluye tu evento en <span className="text-amber-400">Amazonia</span>?
+          </h2>
 
           <p className="text-teal-100 text-base sm:text-lg mt-3 font-medium drop-shadow-md">
             Pasa el cursor o presiona cada tarjeta para descubrir los detalles.

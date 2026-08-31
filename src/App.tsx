@@ -71,7 +71,7 @@ export default function App() {
       <Navbar activeSection={activeSection} setActiveSection={handleNavigate} />
 
       {/* Main Content */}
-      <main className="flex-grow">
+      <main className="flex-grow pb-16 lg:pb-0">
         <div id="inicio">
           <HeroSection />
         </div>
@@ -86,15 +86,15 @@ export default function App() {
       <Footer onNavigate={handleNavigate} />
 
       {/* Floating WhatsApp & Scroll Top */}
-      <aside aria-label="Contacto directo y volver arriba" className="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3">
+      <aside aria-label="Contacto directo y volver arriba" className="fixed bottom-16 sm:bottom-6 right-4 sm:right-6 z-40 flex flex-col items-center gap-2.5 sm:gap-3">
         {showBackToTop && (
           <button
             id="btn-scroll-top"
             onClick={scrollToTop}
-            className="w-11 h-11 rounded-full bg-white text-slate-700 hover:text-teal-600 shadow-lg border border-slate-200 flex items-center justify-center transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white text-slate-700 hover:text-teal-600 shadow-lg border border-slate-200 flex items-center justify-center transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             aria-label="Volver arriba"
           >
-            <ArrowUp className="w-5 h-5" />
+            <ArrowUp className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         )}
 
@@ -103,7 +103,7 @@ export default function App() {
           href={BUSINESS_INFO.whatsappUrl('¡Hola! Me gustaría consultar disponibilidad de fecha para un cumple en Amazonia.')}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-2.5 px-5 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-kids font-bold text-base shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 active:scale-95"
+          className="hidden sm:flex group items-center gap-2.5 px-5 py-3.5 rounded-full bg-teal-600 hover:bg-teal-700 text-white font-kids font-bold text-base shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 active:scale-95"
           aria-label="Contactar por WhatsApp"
         >
           <MessageCircle className="w-5 h-5 fill-white/20 text-amber-300" />
