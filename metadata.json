@@ -1,0 +1,7 @@
+{
+  "name": "Amazonia celebraciones",
+  "description": "Sitio web oficial de Amazonia celebraciones - Alquiler de salón y servicios para cumpleaños infantiles en La Plata.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
