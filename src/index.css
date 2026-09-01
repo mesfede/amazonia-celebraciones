@@ -140,42 +140,400 @@
   will-change: transform;
 }
 
-/* Gentle swaying for decorative balloons */
+/* Gentle and Lively swaying for decorative balloons */
 @keyframes balloonSway1 {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
   50% {
-    transform: translateY(-14px) rotate(3.5deg);
+    transform: translate3d(8px, -24px, 0) rotate(5deg);
   }
 }
 
 @keyframes balloonSway2 {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
   50% {
-    transform: translateY(-18px) rotate(-4deg);
+    transform: translate3d(-12px, -32px, 0) rotate(-6deg);
   }
 }
 
 @keyframes balloonSway3 {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
   50% {
-    transform: translateY(-12px) rotate(2.5deg);
+    transform: translate3d(14px, -20px, 0) rotate(4deg);
+  }
+}
+
+/* Highly dynamic lively balloons */
+@keyframes balloonSwayLively {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate3d(16px, -28px, 0) rotate(7deg) scale(1.03);
+  }
+  50% {
+    transform: translate3d(-8px, -45px, 0) rotate(-6deg) scale(0.98);
+  }
+  75% {
+    transform: translate3d(-20px, -22px, 0) rotate(4deg) scale(1.02);
+  }
+}
+
+@keyframes balloonBouncy {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  30% {
+    transform: translate3d(-10px, -38px, 0) rotate(-8deg);
+  }
+  65% {
+    transform: translate3d(12px, -18px, 0) rotate(6deg);
+  }
+}
+
+/* Balloons that fly and drift upwards into the sky */
+@keyframes balloonFlyUp1 {
+  0% {
+    transform: translate3d(0, 110vh, 0) rotate(-5deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.45;
+  }
+  25% {
+    transform: translate3d(35px, 80vh, 0) rotate(6deg);
+  }
+  50% {
+    transform: translate3d(-25px, 50vh, 0) rotate(-7deg);
+  }
+  75% {
+    transform: translate3d(40px, 20vh, 0) rotate(5deg);
+  }
+  95% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate3d(-15px, -15vh, 0) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFlyUp2 {
+  0% {
+    transform: translate3d(0, 115vh, 0) rotate(6deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.4;
+  }
+  30% {
+    transform: translate3d(-40px, 75vh, 0) rotate(-8deg);
+  }
+  60% {
+    transform: translate3d(30px, 40vh, 0) rotate(7deg);
+  }
+  85% {
+    transform: translate3d(-20px, 12vh, 0) rotate(-5deg);
+  }
+  95% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate3d(25px, -18vh, 0) rotate(4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFlyUp3 {
+  0% {
+    transform: translate3d(0, 120vh, 0) rotate(-4deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.38;
+  }
+  35% {
+    transform: translate3d(45px, 70vh, 0) rotate(8deg);
+  }
+  70% {
+    transform: translate3d(-35px, 30vh, 0) rotate(-6deg);
+  }
+  95% {
+    opacity: 0.38;
+  }
+  100% {
+    transform: translate3d(15px, -20vh, 0) rotate(3deg);
+    opacity: 0;
   }
 }
 
 .animate-balloon-1 {
-  animation: balloonSway1 6s ease-in-out infinite;
+  animation: balloonSway1 5.5s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-balloon-2 {
-  animation: balloonSway2 7.5s ease-in-out infinite;
+  animation: balloonSway2 6.8s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-balloon-3 {
-  animation: balloonSway3 6.8s ease-in-out infinite;
+  animation: balloonSway3 6.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-balloon-lively {
+  animation: balloonSwayLively 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-balloon-bouncy {
+  animation: balloonBouncy 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-balloon-fly-1 {
+  animation: balloonFlyUp1 18s linear infinite;
+  will-change: transform, opacity;
+}
+
+.animate-balloon-fly-2 {
+  animation: balloonFlyUp2 23s linear infinite;
+  will-change: transform, opacity;
+}
+
+.animate-balloon-fly-3 {
+  animation: balloonFlyUp3 26s linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Floating background small dots */
+@keyframes dotDrift1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.35;
+  }
+  35% {
+    transform: translate3d(24px, -35px, 0) scale(1.35);
+    opacity: 0.75;
+  }
+  70% {
+    transform: translate3d(-18px, -65px, 0) scale(0.9);
+    opacity: 0.45;
+  }
+}
+
+@keyframes dotDrift2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translate3d(-30px, -45px, 0) scale(0.8);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate3d(22px, -75px, 0) scale(1.25);
+    opacity: 0.3;
+  }
+}
+
+@keyframes dotDrift3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate3d(35px, -50px, 0) scale(1.4);
+    opacity: 0.85;
+  }
+}
+
+@keyframes dotDrift4 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(0.9);
+    opacity: 0.45;
+  }
+  45% {
+    transform: translate3d(-25px, -30px, 0) scale(1.3);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate3d(15px, -55px, 0) scale(0.85);
+    opacity: 0.35;
+  }
+}
+
+.animate-dot-float-1 {
+  animation: dotDrift1 7s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-dot-float-2 {
+  animation: dotDrift2 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-dot-float-3 {
+  animation: dotDrift3 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-dot-float-4 {
+  animation: dotDrift4 6.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Confetti Explosion & Continuous Floating in "Conocé El Lugar" */
+@keyframes confettiBurstFloat1 {
+  0% {
+    transform: translate3d(var(--origin-x, 0px), var(--origin-y, 0px), 0) scale(0.08) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  14% {
+    transform: translate3d(calc(var(--origin-x, 0px) * -0.08), calc(var(--origin-y, 0px) * -0.08), 0) scale(1.25) rotate(calc(var(--base-rot, 25deg) + 180deg));
+    opacity: 0.95;
+  }
+  24% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(var(--base-rot, 25deg));
+    opacity: 0.85;
+  }
+  42% {
+    transform: translate3d(14px, -18px, 0) scale(1.04) rotate(calc(var(--base-rot, 25deg) + 40deg));
+    opacity: 0.9;
+  }
+  62% {
+    transform: translate3d(-12px, -30px, 0) scale(0.96) rotate(calc(var(--base-rot, 25deg) + 105deg));
+    opacity: 0.8;
+  }
+  82% {
+    transform: translate3d(12px, -12px, 0) scale(1.02) rotate(calc(var(--base-rot, 25deg) + 180deg));
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(calc(var(--base-rot, 25deg) + 360deg));
+    opacity: 0.85;
+  }
+}
+
+@keyframes confettiBurstFloat2 {
+  0% {
+    transform: translate3d(var(--origin-x, 0px), var(--origin-y, 0px), 0) scale(0.08) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  15% {
+    transform: translate3d(calc(var(--origin-x, 0px) * -0.1), calc(var(--origin-y, 0px) * -0.1), 0) scale(1.3) rotate(calc(var(--base-rot, -30deg) - 190deg));
+    opacity: 0.95;
+  }
+  25% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(var(--base-rot, -30deg));
+    opacity: 0.85;
+  }
+  46% {
+    transform: translate3d(-16px, 20px, 0) scale(0.95) rotate(calc(var(--base-rot, -30deg) - 65deg));
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate3d(15px, 32px, 0) scale(1.05) rotate(calc(var(--base-rot, -30deg) - 165deg));
+    opacity: 0.8;
+  }
+  88% {
+    transform: translate3d(-10px, 12px, 0) scale(0.98) rotate(calc(var(--base-rot, -30deg) - 275deg));
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(calc(var(--base-rot, -30deg) - 360deg));
+    opacity: 0.85;
+  }
+}
+
+@keyframes confettiBurstFloat3 {
+  0% {
+    transform: translate3d(var(--origin-x, 0px), var(--origin-y, 0px), 0) scale(0.08) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  13% {
+    transform: translate3d(calc(var(--origin-x, 0px) * -0.12), calc(var(--origin-y, 0px) * -0.12), 0) scale(1.35) rotate(calc(var(--base-rot, 45deg) + 210deg));
+    opacity: 0.95;
+  }
+  22% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(var(--base-rot, 45deg));
+    opacity: 0.85;
+  }
+  45% {
+    transform: translate3d(20px, 15px, 0) scale(1.06) rotate(calc(var(--base-rot, 45deg) + 85deg));
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate3d(-18px, -22px, 0) scale(0.93) rotate(calc(var(--base-rot, 45deg) + 200deg));
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(calc(var(--base-rot, 45deg) + 360deg));
+    opacity: 0.85;
+  }
+}
+
+@keyframes confettiBurstFloat4 {
+  0% {
+    transform: translate3d(var(--origin-x, 0px), var(--origin-y, 0px), 0) scale(0.08) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  16% {
+    transform: translate3d(calc(var(--origin-x, 0px) * -0.09), calc(var(--origin-y, 0px) * -0.09), 0) scale(1.28) rotate(calc(var(--base-rot, -15deg) - 180deg));
+    opacity: 0.95;
+  }
+  26% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(var(--base-rot, -15deg));
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(-22px, -24px, 0) scale(0.95) rotate(calc(var(--base-rot, -15deg) + 75deg));
+    opacity: 0.9;
+  }
+  76% {
+    transform: translate3d(16px, 18px, 0) scale(1.03) rotate(calc(var(--base-rot, -15deg) + 210deg));
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(calc(var(--base-rot, -15deg) + 360deg));
+    opacity: 0.85;
+  }
+}
+
+.animate-confetti-burst-1 {
+  animation: confettiBurstFloat1 11s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-confetti-burst-2 {
+  animation: confettiBurstFloat2 13s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-confetti-burst-3 {
+  animation: confettiBurstFloat3 12s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-confetti-burst-4 {
+  animation: confettiBurstFloat4 14s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  will-change: transform, opacity;
 }

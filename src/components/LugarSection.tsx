@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { LugarSlider } from './LugarSlider';
-import { Castle, Gamepad2, Users, Flame, Wind, UtensilsCrossed, CheckCircle2 } from 'lucide-react';
+import { Castle, Gamepad2, Users, Flame, Wind, UtensilsCrossed, Sparkles, PartyPopper } from 'lucide-react';
+import { ConfettiExplosionCanvas, ConfettiCanvasHandle } from './ConfettiExplosionCanvas';
 
 const FEATURES = [
   {
@@ -41,56 +42,35 @@ const FEATURES = [
   },
 ];
 
-// Decorative confetti rectangles matching the uploaded image pattern:
-// Warm colors (amber/yellow #eab308, orange #f97316, crimson red #e11d48, dark slate #1e293b, teal #0f766e)
-const RECT_CONFETTI = [
-  // Top area
-  { top: '3%', left: '5%', w: '9px', h: '24px', rotate: 'rotate-12', color: 'bg-emerald-700/60' },
-  { top: '6%', left: '18%', w: '10px', h: '26px', rotate: '-rotate-6', color: 'bg-amber-500/65' },
-  { top: '4%', left: '38%', w: '9px', h: '25px', rotate: 'rotate-3', color: 'bg-rose-700/60' },
-  { top: '7%', left: '52%', w: '9px', h: '23px', rotate: '-rotate-12', color: 'bg-teal-800/60' },
-  { top: '3%', left: '74%', w: '11px', h: '28px', rotate: 'rotate-45', color: 'bg-orange-600/60' },
-  { top: '5%', left: '88%', w: '10px', h: '25px', rotate: '-rotate-15', color: 'bg-rose-800/60' },
-
-  // Upper-middle area
-  { top: '16%', left: '8%', w: '10px', h: '27px', rotate: 'rotate-35', color: 'bg-amber-500/60' },
-  { top: '22%', left: '2%', w: '8px', h: '22px', rotate: '-rotate-6', color: 'bg-teal-700/60' },
-  { top: '18%', left: '26%', w: '11px', h: '26px', rotate: 'rotate-75', color: 'bg-slate-900/50' },
-  { top: '25%', left: '16%', w: '9px', h: '24px', rotate: 'rotate-15', color: 'bg-orange-600/65' },
-  { top: '20%', left: '44%', w: '9px', h: '25px', rotate: '-rotate-25', color: 'bg-slate-800/50' },
-  { top: '15%', left: '60%', w: '10px', h: '27px', rotate: 'rotate-20', color: 'bg-rose-700/60' },
-  { top: '22%', left: '80%', w: '10px', h: '28px', rotate: '-rotate-35', color: 'bg-amber-500/65' },
-  { top: '18%', left: '94%', w: '9px', h: '24px', rotate: 'rotate-10', color: 'bg-slate-900/55' },
-
-  // Center area
-  { top: '38%', left: '4%', w: '10px', h: '26px', rotate: '-rotate-15', color: 'bg-rose-700/60' },
-  { top: '44%', left: '12%', w: '10px', h: '25px', rotate: 'rotate-45', color: 'bg-slate-900/50' },
-  { top: '40%', left: '24%', w: '9px', h: '24px', rotate: '-rotate-30', color: 'bg-amber-500/65' },
-  { top: '48%', left: '6%', w: '9px', h: '23px', rotate: 'rotate-6', color: 'bg-orange-600/65' },
-  { top: '36%', left: '88%', w: '10px', h: '27px', rotate: 'rotate-35', color: 'bg-rose-700/60' },
-  { top: '42%', left: '76%', w: '9px', h: '24px', rotate: '-rotate-45', color: 'bg-slate-800/50' },
-  { top: '48%', left: '93%', w: '9px', h: '25px', rotate: 'rotate-20', color: 'bg-teal-800/60' },
-
-  // Lower-middle area
-  { top: '60%', left: '3%', w: '10px', h: '27px', rotate: 'rotate-20', color: 'bg-teal-700/60' },
-  { top: '66%', left: '10%', w: '9px', h: '24px', rotate: '-rotate-45', color: 'bg-slate-900/55' },
-  { top: '62%', left: '20%', w: '10px', h: '26px', rotate: 'rotate-10', color: 'bg-rose-700/60' },
-  { top: '58%', left: '82%', w: '10px', h: '26px', rotate: 'rotate-45', color: 'bg-amber-500/65' },
-  { top: '65%', left: '92%', w: '9px', h: '25px', rotate: '-rotate-20', color: 'bg-orange-600/60' },
-  { top: '72%', left: '84%', w: '9px', h: '24px', rotate: 'rotate-15', color: 'bg-rose-800/60' },
-
-  // Bottom area
-  { top: '82%', left: '6%', w: '9px', h: '25px', rotate: '-rotate-20', color: 'bg-amber-500/65' },
-  { top: '88%', left: '15%', w: '10px', h: '27px', rotate: 'rotate-40', color: 'bg-slate-900/50' },
-  { top: '84%', left: '28%', w: '9px', h: '24px', rotate: '-rotate-10', color: 'bg-teal-700/60' },
-  { top: '92%', left: '7%', w: '9px', h: '23px', rotate: 'rotate-30', color: 'bg-orange-600/65' },
-  { top: '85%', left: '74%', w: '10px', h: '26px', rotate: '-rotate-35', color: 'bg-teal-800/60' },
-  { top: '90%', left: '86%', w: '9px', h: '25px', rotate: 'rotate-25', color: 'bg-amber-500/65' },
-  { top: '84%', left: '95%', w: '10px', h: '26px', rotate: '-rotate-15', color: 'bg-slate-900/55' },
-  { top: '94%', left: '48%', w: '9px', h: '24px', rotate: 'rotate-50', color: 'bg-rose-700/60' },
-];
-
 export const LugarSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const confettiRef = useRef<ConfettiCanvasHandle | null>(null);
+
+  // Trigger realistic explosion when section scrolls into viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Erupt celebratory multi-cannon burst
+            confettiRef.current?.doubleBurst();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const triggerManualExplosion = () => {
+    confettiRef.current?.doubleBurst();
+  };
+
   const scrollToGallery = () => {
     const el = document.getElementById('lugar-slider');
     if (el) {
@@ -99,35 +79,35 @@ export const LugarSection: React.FC = () => {
   };
 
   return (
-    <section id="el-lugar" className="py-16 sm:py-24 bg-[#faf9f6] relative overflow-hidden">
-      
-      {/* Rectangular Confetti Texture Background (from user reference image) */}
-      <div className="absolute inset-0 pointer-events-none select-none z-0">
-        {RECT_CONFETTI.map((item, idx) => (
-          <div
-            key={idx}
-            className={`absolute rounded-[2px] shadow-xs transition-transform duration-700 hover:scale-110 ${item.color} ${item.rotate}`}
-            style={{
-              top: item.top,
-              left: item.left,
-              width: item.w,
-              height: item.h,
-            }}
-          />
-        ))}
-        {/* Soft atmospheric gradient highlights */}
-        <div className="absolute top-0 left-0 w-80 h-80 bg-amber-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl" />
+    <section 
+      ref={sectionRef}
+      id="el-lugar" 
+      className="py-16 sm:py-24 bg-[#faf9f6] relative overflow-hidden select-none"
+    >
+      {/* Realistic 3D Confetti Explosion & Fluttering Fall Canvas */}
+      <ConfettiExplosionCanvas ref={confettiRef} />
+
+      {/* Atmospheric Soft Colored Glows */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-80 h-80 bg-amber-200/25 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-200/25 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-rose-200/15 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Section Header */}
+        {/* Section Header with interactive re-explosion click */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100/90 text-teal-800 font-kids text-sm font-semibold mb-3 border border-teal-200 shadow-xs backdrop-blur-xs">
-            <CheckCircle2 className="w-4 h-4 text-teal-600" />
-            Nuestras Instalaciones
-          </div>
+          <button
+            onClick={triggerManualExplosion}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100/90 hover:bg-teal-200 text-teal-800 font-kids text-sm font-semibold mb-3 border border-teal-200 shadow-xs backdrop-blur-xs cursor-pointer active:scale-95 transition-all group"
+            title="¡Hacé clic para lanzar confeti!"
+          >
+            <PartyPopper className="w-4 h-4 text-teal-600 group-hover:rotate-12 transition-transform" />
+            <span>Nuestras Instalaciones</span>
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+          </button>
+          
           <h2 className="font-kids text-3xl sm:text-4xl lg:text-5xl text-slate-800 font-bold tracking-tight">
             Conocé <span className="text-teal-600">El Lugar</span>
           </h2>

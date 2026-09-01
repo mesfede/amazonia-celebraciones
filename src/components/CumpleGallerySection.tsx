@@ -138,33 +138,72 @@ const BalloonSvg: React.FC<BalloonProps> = ({ color, highlight, size = 64, class
   </div>
 );
 
-// Predefined decorative background balloons pattern positioned across the section
+// Predefined decorative background balloons with diverse dynamic motions
 const BG_BALLOONS = [
-  // Top left cluster
-  { top: '4%', left: '2%', size: 75, color: '#0d9488', highlight: '#99f6e4', anim: 'animate-balloon-1', delay: '0s', opacity: 'opacity-35' },
-  { top: '9%', left: '6%', size: 55, color: '#f59e0b', highlight: '#fef08a', anim: 'animate-balloon-2', delay: '1.2s', opacity: 'opacity-30' },
-  { top: '15%', left: '1%', size: 60, color: '#ec4899', highlight: '#fbcfe8', anim: 'animate-balloon-3', delay: '2.5s', opacity: 'opacity-25' },
+  // Top left cluster - active & bouncy
+  { top: '3%', left: '2%', size: 78, color: '#0d9488', highlight: '#99f6e4', anim: 'animate-balloon-lively', delay: '0s', opacity: 'opacity-40' },
+  { top: '8%', left: '6%', size: 56, color: '#f59e0b', highlight: '#fef08a', anim: 'animate-balloon-bouncy', delay: '0.8s', opacity: 'opacity-35' },
+  { top: '15%', left: '1%', size: 62, color: '#ec4899', highlight: '#fbcfe8', anim: 'animate-balloon-3', delay: '2.5s', opacity: 'opacity-30' },
 
-  // Top right cluster
-  { top: '5%', right: '3%', size: 70, color: '#f97316', highlight: '#fed7aa', anim: 'animate-balloon-2', delay: '0.8s', opacity: 'opacity-35' },
-  { top: '11%', right: '7%', size: 58, color: '#10b981', highlight: '#a7f3d0', anim: 'animate-balloon-1', delay: '2.0s', opacity: 'opacity-30' },
-  { top: '18%', right: '2%', size: 62, color: '#0ea5e9', highlight: '#bae6fd', anim: 'animate-balloon-3', delay: '1.5s', opacity: 'opacity-25' },
+  // Top right cluster - lively sway
+  { top: '4%', right: '3%', size: 72, color: '#f97316', highlight: '#fed7aa', anim: 'animate-balloon-lively', delay: '0.6s', opacity: 'opacity-40' },
+  { top: '10%', right: '7%', size: 60, color: '#10b981', highlight: '#a7f3d0', anim: 'animate-balloon-bouncy', delay: '1.8s', opacity: 'opacity-35' },
+  { top: '17%', right: '2%', size: 64, color: '#0ea5e9', highlight: '#bae6fd', anim: 'animate-balloon-2', delay: '1.2s', opacity: 'opacity-30' },
 
   // Middle left
-  { top: '42%', left: '1.5%', size: 68, color: '#14b8a6', highlight: '#ccfbf1', anim: 'animate-balloon-3', delay: '1.0s', opacity: 'opacity-28' },
-  { top: '50%', left: '5%', size: 50, color: '#e11d48', highlight: '#fecdd3', anim: 'animate-balloon-1', delay: '3.2s', opacity: 'opacity-22' },
+  { top: '40%', left: '1.5%', size: 70, color: '#14b8a6', highlight: '#ccfbf1', anim: 'animate-balloon-bouncy', delay: '0.5s', opacity: 'opacity-32' },
+  { top: '49%', left: '5.5%', size: 52, color: '#e11d48', highlight: '#fecdd3', anim: 'animate-balloon-lively', delay: '2.2s', opacity: 'opacity-28' },
 
   // Middle right
-  { top: '45%', right: '2%', size: 65, color: '#fbbf24', highlight: '#fef9c3', anim: 'animate-balloon-1', delay: '1.8s', opacity: 'opacity-28' },
-  { top: '54%', right: '5.5%', size: 52, color: '#8b5cf6', highlight: '#ddd6fe', anim: 'animate-balloon-2', delay: '2.7s', opacity: 'opacity-22' },
+  { top: '43%', right: '2%', size: 68, color: '#fbbf24', highlight: '#fef9c3', anim: 'animate-balloon-lively', delay: '1.4s', opacity: 'opacity-32' },
+  { top: '53%', right: '5.5%', size: 54, color: '#8b5cf6', highlight: '#ddd6fe', anim: 'animate-balloon-bouncy', delay: '2.0s', opacity: 'opacity-28' },
 
   // Bottom left cluster
-  { bottom: '6%', left: '3%', size: 72, color: '#059669', highlight: '#6ee7b7', anim: 'animate-balloon-2', delay: '0.5s', opacity: 'opacity-30' },
-  { bottom: '13%', left: '7%', size: 54, color: '#f97316', highlight: '#fed7aa', anim: 'animate-balloon-3', delay: '2.2s', opacity: 'opacity-25' },
+  { bottom: '5%', left: '3%', size: 74, color: '#059669', highlight: '#6ee7b7', anim: 'animate-balloon-lively', delay: '0.3s', opacity: 'opacity-35' },
+  { bottom: '12%', left: '7%', size: 56, color: '#f97316', highlight: '#fed7aa', anim: 'animate-balloon-bouncy', delay: '1.6s', opacity: 'opacity-30' },
 
   // Bottom right cluster
-  { bottom: '5%', right: '3.5%', size: 75, color: '#0d9488', highlight: '#99f6e4', anim: 'animate-balloon-1', delay: '1.6s', opacity: 'opacity-30' },
-  { bottom: '12%', right: '8%', size: 56, color: '#ec4899', highlight: '#fbcfe8', anim: 'animate-balloon-2', delay: '3.0s', opacity: 'opacity-25' },
+  { bottom: '4%', right: '3.5%', size: 76, color: '#0d9488', highlight: '#99f6e4', anim: 'animate-balloon-bouncy', delay: '1.1s', opacity: 'opacity-35' },
+  { bottom: '11%', right: '8%', size: 58, color: '#ec4899', highlight: '#fbcfe8', anim: 'animate-balloon-lively', delay: '2.4s', opacity: 'opacity-30' },
+];
+
+// Continuous rising balloons that fly upwards into the sky
+const FLYING_BALLOONS = [
+  { left: '12%', size: 65, color: '#f59e0b', highlight: '#fef08a', anim: 'animate-balloon-fly-1', delay: '0s' },
+  { left: '38%', size: 58, color: '#0d9488', highlight: '#99f6e4', anim: 'animate-balloon-fly-2', delay: '6s' },
+  { left: '68%', size: 70, color: '#e11d48', highlight: '#fecdd3', anim: 'animate-balloon-fly-3', delay: '3s' },
+  { left: '88%', size: 62, color: '#0ea5e9', highlight: '#bae6fd', anim: 'animate-balloon-fly-1', delay: '11s' },
+  { left: '24%', size: 54, color: '#10b981', highlight: '#a7f3d0', anim: 'animate-balloon-fly-3', delay: '14s' },
+  { left: '52%', size: 66, color: '#f97316', highlight: '#fed7aa', anim: 'animate-balloon-fly-2', delay: '17s' },
+];
+
+// Rich festive ambient floating dots constellation
+const FLOATING_DOTS = [
+  // Left side
+  { top: '8%', left: '14%', size: 'w-3 h-3', color: 'bg-amber-400', anim: 'animate-dot-float-1', delay: '0s' },
+  { top: '16%', left: '22%', size: 'w-2.5 h-2.5', color: 'bg-teal-400', anim: 'animate-dot-float-2', delay: '1.2s' },
+  { top: '24%', left: '8%', size: 'w-3.5 h-3.5', color: 'bg-rose-400', anim: 'animate-dot-float-3', delay: '0.5s' },
+  { top: '34%', left: '18%', size: 'w-2 h-2', color: 'bg-emerald-400', anim: 'animate-dot-float-4', delay: '2.1s' },
+  { top: '48%', left: '10%', size: 'w-3 h-3', color: 'bg-sky-400', anim: 'animate-dot-float-1', delay: '1.5s' },
+  { top: '60%', left: '24%', size: 'w-2.5 h-2.5', color: 'bg-orange-400', anim: 'animate-dot-float-2', delay: '0.8s' },
+  { top: '72%', left: '12%', size: 'w-3.5 h-3.5', color: 'bg-pink-400', anim: 'animate-dot-float-3', delay: '2.8s' },
+  { top: '86%', left: '20%', size: 'w-2.5 h-2.5', color: 'bg-teal-400', anim: 'animate-dot-float-4', delay: '1.1s' },
+
+  // Center / Middle lanes
+  { top: '12%', left: '46%', size: 'w-2.5 h-2.5', color: 'bg-amber-400', anim: 'animate-dot-float-2', delay: '0.4s' },
+  { top: '28%', left: '54%', size: 'w-3 h-3', color: 'bg-pink-400', anim: 'animate-dot-float-4', delay: '1.7s' },
+  { top: '64%', left: '42%', size: 'w-2 h-2', color: 'bg-emerald-400', anim: 'animate-dot-float-1', delay: '2.3s' },
+  { top: '82%', left: '50%', size: 'w-3 h-3', color: 'bg-rose-400', anim: 'animate-dot-float-3', delay: '0.9s' },
+
+  // Right side
+  { top: '9%', right: '16%', size: 'w-3 h-3', color: 'bg-sky-400', anim: 'animate-dot-float-3', delay: '0.7s' },
+  { top: '18%', right: '24%', size: 'w-2.5 h-2.5', color: 'bg-emerald-400', anim: 'animate-dot-float-1', delay: '1.9s' },
+  { top: '27%', right: '10%', size: 'w-3.5 h-3.5', color: 'bg-orange-400', anim: 'animate-dot-float-4', delay: '0.3s' },
+  { top: '41%', right: '20%', size: 'w-2 h-2', color: 'bg-amber-400', anim: 'animate-dot-float-2', delay: '2.5s' },
+  { top: '56%', right: '12%', size: 'w-3 h-3', color: 'bg-rose-400', anim: 'animate-dot-float-1', delay: '1.0s' },
+  { top: '68%', right: '26%', size: 'w-2.5 h-2.5', color: 'bg-teal-400', anim: 'animate-dot-float-3', delay: '2.0s' },
+  { top: '79%', right: '14%', size: 'w-3.5 h-3.5', color: 'bg-purple-400', anim: 'animate-dot-float-2', delay: '0.6s' },
+  { top: '89%', right: '22%', size: 'w-2.5 h-2.5', color: 'bg-amber-400', anim: 'animate-dot-float-4', delay: '1.4s' },
 ];
 
 export const CumpleGallerySection: React.FC = () => {
@@ -201,7 +240,7 @@ export const CumpleGallerySection: React.FC = () => {
   return (
     <section id="galeria" className="py-12 sm:py-24 bg-gradient-to-b from-amber-50/40 via-white to-teal-50/40 relative overflow-hidden">
       
-      {/* Decorative Institutional Balloons Pattern in Section Background */}
+      {/* Decorative Institutional Balloons & Floating Atmosphere in Section Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none">
         {/* Subtle festive colorful blurs */}
         <div className="absolute top-10 left-1/4 w-80 h-80 bg-teal-200/35 rounded-full blur-3xl" />
@@ -209,11 +248,11 @@ export const CumpleGallerySection: React.FC = () => {
         <div className="absolute top-1/2 right-8 w-72 h-72 bg-pink-200/25 rounded-full blur-3xl" />
         <div className="absolute top-1/3 left-6 w-72 h-72 bg-sky-200/25 rounded-full blur-3xl" />
 
-        {/* Floating Institutional Balloons Background Pattern */}
+        {/* Anchored Balloons with Dynamic Lively Motion */}
         {BG_BALLOONS.map((b, i) => (
           <div
-            key={i}
-            className={`absolute ${b.anim} ${b.opacity}`}
+            key={`anchor-balloon-${i}`}
+            className={`absolute ${b.anim} ${b.opacity} hover:scale-110 transition-transform duration-300`}
             style={{
               top: b.top,
               bottom: b.bottom,
@@ -230,13 +269,38 @@ export const CumpleGallerySection: React.FC = () => {
           </div>
         ))}
 
-        {/* Scattered small festive background confetti dots */}
-        <div className="absolute top-[12%] left-[22%] w-3 h-3 rounded-full bg-amber-400/40 animate-pulse" />
-        <div className="absolute top-[28%] left-[12%] w-2.5 h-2.5 rounded-full bg-teal-400/40" />
-        <div className="absolute top-[68%] left-[28%] w-3 h-3 rounded-full bg-pink-400/35" />
-        <div className="absolute top-[22%] right-[20%] w-3 h-3 rounded-full bg-emerald-400/40 animate-pulse" />
-        <div className="absolute top-[62%] right-[18%] w-2.5 h-2.5 rounded-full bg-orange-400/40" />
-        <div className="absolute top-[82%] right-[32%] w-3 h-3 rounded-full bg-sky-400/40" />
+        {/* Flying Ascending Balloons Floating Upwards into the Sky */}
+        {FLYING_BALLOONS.map((b, i) => (
+          <div
+            key={`flying-balloon-${i}`}
+            className={`absolute ${b.anim} opacity-40`}
+            style={{
+              left: b.left,
+              top: 0,
+              animationDelay: b.delay,
+            }}
+          >
+            <BalloonSvg
+              color={b.color}
+              highlight={b.highlight}
+              size={b.size}
+            />
+          </div>
+        ))}
+
+        {/* Floating Constellation of Small Moving Dots */}
+        {FLOATING_DOTS.map((dot, i) => (
+          <div
+            key={`floating-dot-${i}`}
+            className={`absolute rounded-full ${dot.size} ${dot.color} ${dot.anim} shadow-xs pointer-events-none`}
+            style={{
+              top: dot.top,
+              left: dot.left,
+              right: dot.right,
+              animationDelay: dot.delay,
+            }}
+          />
+        ))}
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
