@@ -61,38 +61,110 @@ const CUMPLE_PHOTOS = [
   },
 ];
 
-// Rich festive colorful confetti texture for modal backdrop
+// Rich festive colorful confetti texture for modal backdrop with continuous free floating animation
 const MODAL_CONFETTI = [
-  { top: '4%', left: '4%', w: '12px', h: '30px', rotate: 'rotate-12', color: 'bg-amber-400' },
-  { top: '8%', left: '16%', w: '10px', h: '26px', rotate: '-rotate-25', color: 'bg-rose-500' },
-  { top: '5%', left: '32%', w: '11px', h: '28px', rotate: 'rotate-45', color: 'bg-teal-400' },
-  { top: '7%', left: '50%', w: '9px', h: '24px', rotate: '-rotate-15', color: 'bg-orange-400' },
-  { top: '6%', left: '68%', w: '12px', h: '28px', rotate: 'rotate-35', color: 'bg-pink-400' },
-  { top: '4%', left: '85%', w: '10px', h: '26px', rotate: '-rotate-30', color: 'bg-emerald-400' },
-  { top: '9%', left: '94%', w: '11px', h: '25px', rotate: 'rotate-20', color: 'bg-amber-300' },
+  { top: '4%', left: '4%', w: '12px', h: '32px', color: 'bg-amber-400', anim: 'animate-confetti-1', delay: '0s' },
+  { top: '8%', left: '16%', w: '10px', h: '28px', color: 'bg-rose-500', anim: 'animate-confetti-2', delay: '1.2s' },
+  { top: '5%', left: '32%', w: '11px', h: '30px', color: 'bg-teal-400', anim: 'animate-confetti-3', delay: '2.5s' },
+  { top: '7%', left: '50%', w: '10px', h: '26px', color: 'bg-orange-400', anim: 'animate-confetti-4', delay: '0.8s' },
+  { top: '6%', left: '68%', w: '12px', h: '30px', color: 'bg-pink-400', anim: 'animate-confetti-1', delay: '3.1s' },
+  { top: '4%', left: '85%', w: '10px', h: '28px', color: 'bg-emerald-400', anim: 'animate-confetti-2', delay: '1.9s' },
+  { top: '9%', left: '94%', w: '11px', h: '26px', color: 'bg-amber-300', anim: 'animate-confetti-3', delay: '4.2s' },
 
-  { top: '20%', left: '3%', w: '11px', h: '28px', rotate: '-rotate-40', color: 'bg-teal-400' },
-  { top: '24%', left: '14%', w: '10px', h: '26px', rotate: 'rotate-15', color: 'bg-amber-400' },
-  { top: '18%', left: '88%', w: '11px', h: '29px', rotate: 'rotate-30', color: 'bg-rose-500' },
-  { top: '25%', left: '96%', w: '9px', h: '24px', rotate: '-rotate-20', color: 'bg-orange-400' },
+  { top: '20%', left: '3%', w: '11px', h: '30px', color: 'bg-teal-400', anim: 'animate-confetti-4', delay: '1.5s' },
+  { top: '24%', left: '14%', w: '10px', h: '26px', color: 'bg-amber-400', anim: 'animate-confetti-1', delay: '2.8s' },
+  { top: '18%', left: '88%', w: '11px', h: '32px', color: 'bg-rose-500', anim: 'animate-confetti-2', delay: '0.5s' },
+  { top: '25%', left: '96%', w: '9px', h: '25px', color: 'bg-orange-400', anim: 'animate-confetti-3', delay: '3.6s' },
 
-  { top: '42%', left: '4%', w: '12px', h: '30px', rotate: 'rotate-25', color: 'bg-rose-500' },
-  { top: '48%', left: '12%', w: '9px', h: '24px', rotate: '-rotate-35', color: 'bg-emerald-400' },
-  { top: '38%', left: '89%', w: '12px', h: '28px', rotate: '-rotate-15', color: 'bg-teal-400' },
-  { top: '45%', left: '95%', w: '10px', h: '26px', rotate: 'rotate-45', color: 'bg-amber-400' },
+  { top: '42%', left: '4%', w: '12px', h: '32px', color: 'bg-rose-500', anim: 'animate-confetti-1', delay: '2.2s' },
+  { top: '48%', left: '12%', w: '9px', h: '26px', color: 'bg-emerald-400', anim: 'animate-confetti-2', delay: '4.0s' },
+  { top: '38%', left: '89%', w: '12px', h: '30px', color: 'bg-teal-400', anim: 'animate-confetti-3', delay: '1.1s' },
+  { top: '45%', left: '95%', w: '10px', h: '28px', color: 'bg-amber-400', anim: 'animate-confetti-4', delay: '2.9s' },
 
-  { top: '65%', left: '5%', w: '11px', h: '28px', rotate: '-rotate-15', color: 'bg-orange-400' },
-  { top: '72%', left: '13%', w: '10px', h: '26px', rotate: 'rotate-35', color: 'bg-pink-400' },
-  { top: '62%', left: '87%', w: '11px', h: '27px', rotate: 'rotate-20', color: 'bg-emerald-400' },
-  { top: '70%', left: '94%', w: '10px', h: '26px', rotate: '-rotate-45', color: 'bg-rose-500' },
+  { top: '65%', left: '5%', w: '11px', h: '30px', color: 'bg-orange-400', anim: 'animate-confetti-1', delay: '3.4s' },
+  { top: '72%', left: '13%', w: '10px', h: '27px', color: 'bg-pink-400', anim: 'animate-confetti-2', delay: '0.7s' },
+  { top: '62%', left: '87%', w: '11px', h: '28px', color: 'bg-emerald-400', anim: 'animate-confetti-3', delay: '2.3s' },
+  { top: '70%', left: '94%', w: '10px', h: '27px', color: 'bg-rose-500', anim: 'animate-confetti-4', delay: '4.5s' },
 
-  { top: '85%', left: '6%', w: '12px', h: '28px', rotate: 'rotate-30', color: 'bg-teal-400' },
-  { top: '90%', left: '18%', w: '10px', h: '26px', rotate: '-rotate-20', color: 'bg-amber-400' },
-  { top: '88%', left: '35%', w: '9px', h: '24px', rotate: 'rotate-45', color: 'bg-rose-500' },
-  { top: '92%', left: '52%', w: '11px', h: '27px', rotate: '-rotate-10', color: 'bg-emerald-400' },
-  { top: '87%', left: '70%', w: '10px', h: '26px', rotate: 'rotate-25', color: 'bg-orange-400' },
-  { top: '91%', left: '85%', w: '12px', h: '28px', rotate: '-rotate-35', color: 'bg-pink-400' },
-  { top: '86%', left: '95%', w: '10px', h: '25px', rotate: 'rotate-15', color: 'bg-amber-300' },
+  { top: '85%', left: '6%', w: '12px', h: '30px', color: 'bg-teal-400', anim: 'animate-confetti-1', delay: '1.7s' },
+  { top: '90%', left: '18%', w: '10px', h: '28px', color: 'bg-amber-400', anim: 'animate-confetti-2', delay: '3.8s' },
+  { top: '88%', left: '35%', w: '9px', h: '25px', color: 'bg-rose-500', anim: 'animate-confetti-3', delay: '0.3s' },
+  { top: '92%', left: '52%', w: '11px', h: '28px', color: 'bg-emerald-400', anim: 'animate-confetti-4', delay: '2.6s' },
+  { top: '87%', left: '70%', w: '10px', h: '27px', color: 'bg-orange-400', anim: 'animate-confetti-1', delay: '4.1s' },
+  { top: '91%', left: '85%', w: '12px', h: '30px', color: 'bg-pink-400', anim: 'animate-confetti-2', delay: '1.4s' },
+  { top: '86%', left: '95%', w: '10px', h: '26px', color: 'bg-amber-300', anim: 'animate-confetti-3', delay: '3.0s' },
+];
+
+// Institutional Balloons for section background pattern
+interface BalloonProps {
+  color: string;
+  highlight: string;
+  size?: number;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+const BalloonSvg: React.FC<BalloonProps> = ({ color, highlight, size = 64, className = '', style }) => (
+  <div className={`relative inline-block ${className}`} style={{ width: size, height: size * 1.55, ...style }}>
+    <svg viewBox="0 0 50 75" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-sm">
+      {/* Balloon string */}
+      <path
+        d="M25 44 C22 53 28 62 24 73"
+        stroke="#94a3b8"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        fill="none"
+        strokeDasharray="2 1.5"
+      />
+      {/* Balloon body */}
+      <path
+        d="M25 4 C13.5 4 4 13 4 24.5 C4 35 15.5 43 23.5 43.8 L23 45.5 C23 46 24 46.5 25 46.5 C26 46.5 27 46 27 45.5 L26.5 43.8 C34.5 43 46 35 46 24.5 C46 13 36.5 4 25 4 Z"
+        fill={color}
+      />
+      {/* Balloon Knot */}
+      <polygon points="22.5,46 27.5,46 25,43" fill={color} />
+      {/* Glossy light reflection */}
+      <ellipse
+        cx="16"
+        cy="15"
+        rx="4.5"
+        ry="8"
+        transform="rotate(-28 16 15)"
+        fill={highlight}
+        fillOpacity="0.65"
+      />
+      <circle cx="21" cy="9" r="1.8" fill={highlight} fillOpacity="0.8" />
+    </svg>
+  </div>
+);
+
+// Predefined decorative background balloons pattern positioned across the section
+const BG_BALLOONS = [
+  // Top left cluster
+  { top: '4%', left: '2%', size: 75, color: '#0d9488', highlight: '#99f6e4', anim: 'animate-balloon-1', delay: '0s', opacity: 'opacity-35' },
+  { top: '9%', left: '6%', size: 55, color: '#f59e0b', highlight: '#fef08a', anim: 'animate-balloon-2', delay: '1.2s', opacity: 'opacity-30' },
+  { top: '15%', left: '1%', size: 60, color: '#ec4899', highlight: '#fbcfe8', anim: 'animate-balloon-3', delay: '2.5s', opacity: 'opacity-25' },
+
+  // Top right cluster
+  { top: '5%', right: '3%', size: 70, color: '#f97316', highlight: '#fed7aa', anim: 'animate-balloon-2', delay: '0.8s', opacity: 'opacity-35' },
+  { top: '11%', right: '7%', size: 58, color: '#10b981', highlight: '#a7f3d0', anim: 'animate-balloon-1', delay: '2.0s', opacity: 'opacity-30' },
+  { top: '18%', right: '2%', size: 62, color: '#0ea5e9', highlight: '#bae6fd', anim: 'animate-balloon-3', delay: '1.5s', opacity: 'opacity-25' },
+
+  // Middle left
+  { top: '42%', left: '1.5%', size: 68, color: '#14b8a6', highlight: '#ccfbf1', anim: 'animate-balloon-3', delay: '1.0s', opacity: 'opacity-28' },
+  { top: '50%', left: '5%', size: 50, color: '#e11d48', highlight: '#fecdd3', anim: 'animate-balloon-1', delay: '3.2s', opacity: 'opacity-22' },
+
+  // Middle right
+  { top: '45%', right: '2%', size: 65, color: '#fbbf24', highlight: '#fef9c3', anim: 'animate-balloon-1', delay: '1.8s', opacity: 'opacity-28' },
+  { top: '54%', right: '5.5%', size: 52, color: '#8b5cf6', highlight: '#ddd6fe', anim: 'animate-balloon-2', delay: '2.7s', opacity: 'opacity-22' },
+
+  // Bottom left cluster
+  { bottom: '6%', left: '3%', size: 72, color: '#059669', highlight: '#6ee7b7', anim: 'animate-balloon-2', delay: '0.5s', opacity: 'opacity-30' },
+  { bottom: '13%', left: '7%', size: 54, color: '#f97316', highlight: '#fed7aa', anim: 'animate-balloon-3', delay: '2.2s', opacity: 'opacity-25' },
+
+  // Bottom right cluster
+  { bottom: '5%', right: '3.5%', size: 75, color: '#0d9488', highlight: '#99f6e4', anim: 'animate-balloon-1', delay: '1.6s', opacity: 'opacity-30' },
+  { bottom: '12%', right: '8%', size: 56, color: '#ec4899', highlight: '#fbcfe8', anim: 'animate-balloon-2', delay: '3.0s', opacity: 'opacity-25' },
 ];
 
 export const CumpleGallerySection: React.FC = () => {
@@ -127,17 +199,51 @@ export const CumpleGallerySection: React.FC = () => {
   };
 
   return (
-    <section id="galeria" className="py-12 sm:py-24 bg-white relative overflow-hidden">
-      {/* Playful background colorful blurs */}
-      <div className="absolute top-10 left-1/4 w-72 h-72 bg-teal-100/60 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-amber-100/60 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute top-1/2 right-10 w-64 h-64 bg-pink-100/50 rounded-full blur-3xl -z-10 pointer-events-none" />
+    <section id="galeria" className="py-12 sm:py-24 bg-gradient-to-b from-amber-50/40 via-white to-teal-50/40 relative overflow-hidden">
+      
+      {/* Decorative Institutional Balloons Pattern in Section Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none">
+        {/* Subtle festive colorful blurs */}
+        <div className="absolute top-10 left-1/4 w-80 h-80 bg-teal-200/35 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-amber-200/35 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 right-8 w-72 h-72 bg-pink-200/25 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-6 w-72 h-72 bg-sky-200/25 rounded-full blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Floating Institutional Balloons Background Pattern */}
+        {BG_BALLOONS.map((b, i) => (
+          <div
+            key={i}
+            className={`absolute ${b.anim} ${b.opacity}`}
+            style={{
+              top: b.top,
+              bottom: b.bottom,
+              left: b.left,
+              right: b.right,
+              animationDelay: b.delay,
+            }}
+          >
+            <BalloonSvg
+              color={b.color}
+              highlight={b.highlight}
+              size={b.size}
+            />
+          </div>
+        ))}
+
+        {/* Scattered small festive background confetti dots */}
+        <div className="absolute top-[12%] left-[22%] w-3 h-3 rounded-full bg-amber-400/40 animate-pulse" />
+        <div className="absolute top-[28%] left-[12%] w-2.5 h-2.5 rounded-full bg-teal-400/40" />
+        <div className="absolute top-[68%] left-[28%] w-3 h-3 rounded-full bg-pink-400/35" />
+        <div className="absolute top-[22%] right-[20%] w-3 h-3 rounded-full bg-emerald-400/40 animate-pulse" />
+        <div className="absolute top-[62%] right-[18%] w-2.5 h-2.5 rounded-full bg-orange-400/40" />
+        <div className="absolute top-[82%] right-[32%] w-3 h-3 rounded-full bg-sky-400/40" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-teal-50 text-teal-700 font-kids text-xs sm:text-sm font-semibold mb-2 sm:mb-3 border border-teal-200 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-teal-50/90 text-teal-700 font-kids text-xs sm:text-sm font-semibold mb-2 sm:mb-3 border border-teal-200 shadow-xs backdrop-blur-xs">
             <PartyPopper className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
             Momentos Mágicos
           </div>
@@ -199,24 +305,24 @@ export const CumpleGallerySection: React.FC = () => {
 
       </div>
 
-      {/* Entertaining Colorful Lightbox Modal with Logo Backdrop & Full Navigation */}
+      {/* Entertaining Colorful Lightbox Modal with Free Floating Confetti, Logo Backdrop & Full Navigation */}
       {selectedPhoto !== null && (
         <div 
           className="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl flex flex-col items-center justify-between p-3 sm:p-6 select-none animate-in fade-in duration-200"
           onClick={() => setSelectedPhoto(null)}
         >
-          {/* Rectangles Texture Background in Modal */}
+          {/* Continuous Free-Floating Rectangles Confetti Texture in Modal */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
             {MODAL_CONFETTI.map((c, i) => (
               <div
                 key={i}
-                className={`absolute rounded-xs shadow-lg opacity-80 animate-pulse ${c.color} ${c.rotate}`}
+                className={`absolute rounded-xs shadow-lg opacity-80 ${c.color} ${c.anim}`}
                 style={{
                   top: c.top,
                   left: c.left,
                   width: c.w,
                   height: c.h,
-                  animationDuration: `${3 + (i % 4)}s`,
+                  animationDelay: c.delay,
                 }}
               />
             ))}

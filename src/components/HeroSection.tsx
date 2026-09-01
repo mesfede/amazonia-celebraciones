@@ -105,25 +105,25 @@ export const HeroSection: React.FC = () => {
           key={`badge-${currentSlide}`}
           className={`mb-3 sm:mb-4 inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 rounded-full font-kids text-xs sm:text-base font-extrabold shadow-xl border-2 animate-pop-bounce transition-all duration-300 ${slide.badgeStyle}`}
         >
-          <PartyPopper className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${slide.iconColor}`} />
+          <PartyPopper className={`w-4 h-4 sm:w-4.5 sm:h-4.5 ${slide.iconColor}`} />
           <span>{slide.highlight}</span>
         </div>
 
-        {/* Animated Dynamic Main Headline - Clean 2 lines on mobile without scroll */}
-        <div className="min-h-[64px] sm:min-h-[120px] flex items-center justify-center max-w-4xl px-2">
+        {/* Animated Dynamic Main Headline - Bigger, bold and high-impact on mobile */}
+        <div className="min-h-[80px] sm:min-h-[120px] flex items-center justify-center max-w-4xl px-2">
           <h1
             key={`title-${currentSlide}`}
-            className="font-kids text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-snug sm:leading-[1.15] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] animate-slide-in-up line-clamp-2"
+            className="font-kids text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight sm:leading-[1.15] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)] animate-slide-in-up"
           >
             {slide.title}
           </h1>
         </div>
 
-        {/* Animated Subtitle - Short and 2 lines max on mobile */}
-        <div className="min-h-[36px] sm:min-h-[60px] flex items-center justify-center max-w-2xl mt-1 sm:mt-2 mb-2 sm:mb-8 px-2">
+        {/* Animated Subtitle / Bajada - Clearer, larger and prominent on mobile */}
+        <div className="min-h-[48px] sm:min-h-[60px] flex items-center justify-center max-w-2xl mt-2 sm:mt-2 mb-3 sm:mb-8 px-2">
           <p
             key={`sub-${currentSlide}`}
-            className="text-white/95 text-xs sm:text-xl font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] leading-relaxed animate-slide-in-up line-clamp-2"
+            className="text-white/95 text-base sm:text-xl font-semibold sm:font-medium drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] leading-snug sm:leading-relaxed animate-slide-in-up"
           >
             {slide.subtitle}
           </p>

@@ -25,7 +25,35 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const desktopNavLinks = [
+    {
+      id: 'inicio',
+      label: 'Inicio',
+      icon: Home,
+    },
+    {
+      id: 'el-lugar',
+      label: 'El Lugar',
+      icon: MapPin,
+    },
+    {
+      id: 'galeria',
+      label: 'Galería',
+      icon: ImageIcon,
+    },
+    {
+      id: 'servicios',
+      label: 'Servicios',
+      icon: PartyPopper,
+    },
+    {
+      id: 'reservas',
+      label: 'Reservas',
+      icon: Calendar,
+    },
+  ];
+
+  const mobileNavLinks = [
     {
       id: 'inicio',
       label: 'Inicio',
@@ -45,6 +73,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
       idleBg: 'bg-sky-50 text-sky-700',
     },
     {
+      id: 'reservas',
+      label: 'Reservas',
+      icon: Calendar,
+      isCenter: true,
+      activeBg: 'bg-gradient-to-tr from-rose-500 via-rose-600 to-pink-600 text-white shadow-xl shadow-rose-500/40 ring-4 ring-rose-200',
+      activeText: 'text-rose-600 font-extrabold',
+      idleIcon: 'text-white',
+      idleBg: 'bg-gradient-to-tr from-rose-500 to-rose-600 text-white',
+    },
+    {
       id: 'galeria',
       label: 'Galería',
       icon: ImageIcon,
@@ -61,15 +99,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
       activeText: 'text-amber-700 font-extrabold',
       idleIcon: 'text-amber-600',
       idleBg: 'bg-amber-50 text-amber-700',
-    },
-    {
-      id: 'reservas',
-      label: 'Fechas',
-      icon: Calendar,
-      activeBg: 'bg-rose-500 text-white shadow-md shadow-rose-500/35 ring-2 ring-rose-200',
-      activeText: 'text-rose-700 font-extrabold',
-      idleIcon: 'text-rose-600',
-      idleBg: 'bg-rose-50 text-rose-700',
     },
   ];
 
@@ -114,7 +143,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1.5" aria-label="Navegación principal">
-              {navLinks.map((link) => {
+              {desktopNavLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
                   <button
@@ -176,7 +205,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 px-4 pt-2 pb-6 space-y-1.5 shadow-2xl animate-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col space-y-1.5">
-              {navLinks.map((link) => {
+              {mobileNavLinks.map((link) => {
                 const Icon = link.icon;
                 const isActive = activeSection === link.id;
                 return (
@@ -189,7 +218,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
                         : 'text-slate-800 hover:bg-slate-100'
                     }`}
                   >
-                    <div className={`p-1 rounded-xl ${isActive ? 'bg-white/20' : link.idleBg}`}>
+                    <div className={`p-1.5 rounded-xl ${isActive ? 'bg-white/20' : link.idleBg}`}>
                       <Icon className={`w-5 h-5 ${isActive ? 'text-white' : link.idleIcon}`} />
                     </div>
                     <span>{link.label}</span>
@@ -204,7 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
                     : 'text-slate-800 hover:bg-slate-100'
                 }`}
               >
-                <div className="p-1 rounded-xl bg-teal-50 text-teal-700">
+                <div className="p-1.5 rounded-xl bg-teal-50 text-teal-700">
                   <MessageCircle className="w-5 h-5 text-teal-600" />
                 </div>
                 <span>Contacto & Ubicación</span>
@@ -214,14 +243,41 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
         )}
       </header>
 
-      {/* Joyful & Colorful App-like Mobile Bottom Navigation Bar */}
+      {/* Joyful & Colorful App-like Mobile Bottom Navigation Bar with Prominent Center Reservas Button */}
       <nav 
         aria-label="Navegación móvil estilo app" 
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t-2 border-slate-200/90 shadow-[0_-4px_25px_rgba(0,0,0,0.12)] py-2 px-2 flex items-center justify-around"
+        className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t-2 border-slate-200/90 shadow-[0_-4px_25px_rgba(0,0,0,0.12)] pt-1.5 pb-2.5 px-2 flex items-center justify-around"
       >
-        {navLinks.map((link) => {
+        {mobileNavLinks.map((link) => {
           const Icon = link.icon;
           const isActive = activeSection === link.id;
+
+          if (link.isCenter) {
+            return (
+              <button
+                key={link.id}
+                onClick={() => handleNavClick(link.id)}
+                className="flex flex-col items-center justify-center -mt-6 mx-1 cursor-pointer active:scale-95 transition-transform"
+                aria-label="Reservas - Consultar fechas disponibles"
+              >
+                <div
+                  className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 ${
+                    isActive
+                      ? 'bg-gradient-to-tr from-rose-500 via-rose-600 to-pink-600 text-white ring-4 ring-rose-200 shadow-rose-500/50 scale-105 animate-pop-bounce'
+                      : 'bg-gradient-to-tr from-rose-500 to-pink-500 text-white shadow-rose-500/35 border-2 border-white hover:scale-105'
+                  }`}
+                >
+                  <Calendar className="w-7 h-7 text-white stroke-[2.4]" />
+                </div>
+                <span className={`font-kids text-xs tracking-tight mt-0.5 transition-colors ${
+                  isActive ? 'font-extrabold text-rose-600' : 'font-bold text-rose-600'
+                }`}>
+                  {link.label}
+                </span>
+              </button>
+            );
+          }
+
           return (
             <button
               key={link.id}
@@ -236,12 +292,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, setActiveSection 
                 className={`p-2 rounded-2xl transition-all duration-300 ${
                   isActive
                     ? `${link.activeBg} animate-pop-bounce`
-                    : `${link.idleBg} ${link.idleIcon} opacity-80 hover:opacity-100`
+                    : `${link.idleBg} ${link.idleIcon} opacity-85 hover:opacity-100`
                 }`}
               >
-                <Icon className={`w-5 h-5 ${isActive ? 'text-white stroke-[2.5]' : 'stroke-2'}`} />
+                <Icon className={`w-6 h-6 ${isActive ? 'text-white stroke-[2.4]' : 'stroke-[2.2]'}`} />
               </div>
-              <span className={`font-kids text-[11px] tracking-tight mt-1 transition-colors ${isActive ? 'font-extrabold' : 'font-semibold text-slate-600'}`}>
+              <span className={`font-kids text-xs tracking-tight mt-1 transition-colors ${isActive ? 'font-extrabold' : 'font-semibold text-slate-600'}`}>
                 {link.label}
               </span>
             </button>
